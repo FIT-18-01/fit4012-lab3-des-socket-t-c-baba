@@ -15,16 +15,16 @@ def main() -> None:
         s.bind((HOST, PORT))
         s.listen(1)
         s.settimeout(TIMEOUT)
-        print(f"Đang lắng nghe {HOST}:{PORT}...")
+        print(f"Listening on {HOST}:{PORT}...")
         conn, addr = s.accept()
         with conn:
-            print(f"Kết nối từ {addr}")
+            print(f"Connected from {addr}")
             header = recv_exact(conn, HEADER_SIZE)
             key, iv, length = parse_header(header)
             cipher_bytes = recv_exact(conn, length)
             plaintext = decrypt_des_cbc(key, iv, cipher_bytes)
             message = plaintext.decode('utf-8', errors='ignore')
-            line = f"[+] Bản tin gốc: {message}"
+            line = f"[Receiver] Plaintext: {message}"
             print(line)
 
             if OUTPUT_FILE:

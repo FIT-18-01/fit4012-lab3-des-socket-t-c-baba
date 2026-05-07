@@ -1,14 +1,18 @@
 # Peer Review Response
 
 ## Thông tin nhóm
-- Thành viên 1: TODO_STUDENT
-- Thành viên 2: TODO_STUDENT
+
+- Thành viên 1: Nguyễn Xuân Quang
+- Thành viên 2: Nguyễn Anh Tuấn
 
 ## Thành viên 1 góp ý cho thành viên 2
-TODO_STUDENT: Góp ý ngắn gọn về phần việc, chất lượng code, test, hoặc tài liệu.
+
+Code của bạn chạy ổn, cấu trúc `receiver.py` rõ ràng và xử lý log tốt. Tuy nhiên cần đảm bảo thông báo lỗi dễ đọc khi socket timeout hoặc dữ liệu nhận không hợp lệ.
 
 ## Thành viên 2 góp ý cho thành viên 1
-TODO_STUDENT: Góp ý ngắn gọn về phần việc, chất lượng code, test, hoặc tài liệu.
+
+Phần `sender.py` nên tách rõ phần build packet và mã hoá để dễ kiểm thử. Nên ghi log sender và receiver riêng để thuận tiện đối chiếu khi debug.
 
 ## Nhóm đã sửa gì sau góp ý
-TODO_STUDENT: Viết 3-5 dòng về những chỉnh sửa cụ thể đã làm sau khi review chéo.
+
+Chúng tôi đã cập nhật `sender.py` để dùng hàm `encrypt_des_cbc` và `build_packet` từ `des_socket_utils.py`, đồng thời thêm log gửi/nhận. Cả hai cũng cùng hoàn thiện test local và tạo file log minh chứng `logs/demo_run.log`.
